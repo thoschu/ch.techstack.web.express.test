@@ -5,7 +5,8 @@ function testAction(req, res) {
     console.log(req.get('cache-control'));
     res.cookie('foo', 'bar');
     res.status('200');
-    res.send(model);
+    console.dir(model.testData.getNameByValue('Thomas'));
+    res.send(model.testData.getAll());
 }
 
 module.exports = testAction
