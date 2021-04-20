@@ -13,14 +13,14 @@ const source = `
           <meta property="og:url" content="">
           <meta property="og:image" content="">
           <link rel="manifest" href="site.webmanifest">
-          <link rel="apple-touch-icon" href="https://www.thomas-schulte.de/html/images/favicon.ico">
+          <link rel="icon" href="https://www.thomas-schulte.de/html/images/favicon.ico">
           <!-- Place favicon.ico in the root directory -->
           <link rel="stylesheet" href="css/normalize.css">
           <link rel="stylesheet" href="css/style.css">
           <meta name="theme-color" content="#fafafa">
         </head>
         <body>
-          <p>Hello world! This is {{name}} Boilerplate.</p>
+          <p>Hello world! This is the {{name}} Boilerplate...</p>
           <p>Greetings from {{hometown}}</p>
           <script src="js/vendor/modernizr-3.11.6.min.js"></script>
           <script src="js/app.js"></script>
