@@ -24,6 +24,16 @@ const source = `
           <p>Greetings from {{hometown}}</p>
           <script src="js/vendor/modernizr-3.11.6.min.js"></script>
           <script src="js/app.js"></script>
+          <script> 
+            const url = 'http://localhost:8888/test';
+            fetch(url)
+                .then(function(res) {
+                    console.log(res);
+                })
+                .catch(function(err) {
+                    console.error(err);
+                });
+          </script>
         </body>
     </html>
 `;
