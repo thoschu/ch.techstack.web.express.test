@@ -1,16 +1,7 @@
 const express = require('express');
-const app = express();
+const router = express.Router();
+const {testAction} = require('./controllers');
 
-const PORT = 8888;
+router.get('/', testAction);
 
-app.get('/', (req, res) => {
-    console.log(req.method);
-    console.log(req.get('cache-control'));
-    res.cookie('foo', 'bar');
-    res.status('200');
-    res.send('Moin Valassis');
-});
-
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-});
+module.exports = router;

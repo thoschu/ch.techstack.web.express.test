@@ -2,21 +2,21 @@
   "name": "ch.techstack.web.express.test",
   "version": "1.0.0",
   "description": "Express.js demo application ",
-  "main": "app/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app/index.js",
-    "start:inspect": "node inspect app/index.js",
-    "start:--inspect": "node --inspect app/index.js",
-    "start:--inspect-brk": "node --inspect-brk app/index.js",
-    "start:nodemon": "nodemon app/index.js",
-    "start:nodemon:inspect": "nodemon inspect app/index.js",
-    "start:nodemon:--inspect": "nodemon --inspect app/index.js",
-    "start:nodemon:--inspect-brk": "nodemon --inspect-brk app/index.js",
-    "start:nodemon:config": "nodemon --config nodemon.json app/index.js",
-    "start:nodemon:config:inspect": "nodemon --config nodemon.json  inspect app/index.js",
-    "start:nodemon:config:--inspect": "nodemon --config nodemon.json --inspect app/index.js",
-    "start:nodemon:config:--inspect-brk": "nodemon --config nodemon.json --inspect-brk app/index.js"
+    "start": "node index.js",
+    "start:inspect": "node inspect index.js",
+    "start:--inspect": "node --inspect index.js",
+    "start:--inspect-brk": "node --inspect-brk index.js",
+    "start:nodemon": "nodemon index.js",
+    "start:nodemon:inspect": "nodemon inspect index.js",
+    "start:nodemon:--inspect": "nodemon --inspect index.js",
+    "start:nodemon:--inspect-brk": "nodemon --inspect-brk index.js",
+    "start:nodemon:config": "nodemon --config nodemon.json index.js",
+    "start:nodemon:config:inspect": "nodemon --config nodemon.json  inspect index.js",
+    "start:nodemon:config:--inspect": "nodemon --config nodemon.json --inspect index.js",
+    "start:nodemon:config:--inspect-brk": "nodemon --config nodemon.json --inspect-brk index.js"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
   "homepage": "https://github.com/thoschu/ch.techstack.web.express.test#readme",
   "dependencies": {
     "chalk": "^3.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nano": "^9.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
