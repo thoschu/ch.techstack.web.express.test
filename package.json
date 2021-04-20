@@ -1,0 +1,44 @@
+{
+  "name": "ch.techstack.web.express.test",
+  "version": "1.0.0",
+  "description": "Express.js demo application ",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/index.js",
+    "start:inspect": "node inspect app/index.js",
+    "start:--inspect": "node --inspect app/index.js",
+    "start:--inspect-brk": "node --inspect-brk app/index.js",
+    "start:nodemon": "nodemon app/index.js",
+    "start:nodemon:inspect": "nodemon inspect app/index.js",
+    "start:nodemon:--inspect": "nodemon --inspect app/index.js",
+    "start:nodemon:--inspect-brk": "nodemon --inspect-brk app/index.js",
+    "start:nodemon:config": "nodemon --config nodemon.json app/index.js",
+    "start:nodemon:config:inspect": "nodemon --config nodemon.json  inspect app/index.js",
+    "start:nodemon:config:--inspect": "nodemon --config nodemon.json --inspect app/index.js",
+    "start:nodemon:config:--inspect-brk": "nodemon --config nodemon.json --inspect-brk app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thoschu/ch.techstack.web.express.test.git"
+  },
+  "keywords": [
+    "express.js",
+    "javascript",
+    "node.js",
+    "mvc"
+  ],
+  "author": "Tom S.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thoschu/ch.techstack.web.express.test/issues"
+  },
+  "homepage": "https://github.com/thoschu/ch.techstack.web.express.test#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
