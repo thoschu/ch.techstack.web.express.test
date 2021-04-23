@@ -16,7 +16,8 @@
     "start:nodemon:config": "nodemon --config nodemon.json index.js",
     "start:nodemon:config:inspect": "nodemon --config nodemon.json  inspect index.js",
     "start:nodemon:config:--inspect": "nodemon --config nodemon.json --inspect index.js",
-    "start:nodemon:config:--inspect-brk": "nodemon --config nodemon.json --inspect-brk index.js"
+    "start:nodemon:config:--inspect-brk": "nodemon --config nodemon.json --inspect-brk index.js",
+    "tunnel": "ngrok http 8888"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "ramda": "^0.27.1"
   },
   "devDependencies": {
+    "ngrok": "^4.0.1",
     "nodemon": "^2.0.7"
   }
 }
