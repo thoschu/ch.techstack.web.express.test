@@ -1,8 +1,8 @@
-const {valassisData} = require('../models');
-const {valassisView} = require('../views');
+const {tomData} = require('../models');
+const {tomView} = require('../views');
 
-function valassisAction(req, res) {
-    res.send(valassisView(valassisData));
+function tomAction(req, res) {
+    res.send(tomView(tomData));
 }
 
-module.exports = valassisAction;
+module.exports = tomAction;

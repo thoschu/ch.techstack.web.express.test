@@ -1,5 +1,5 @@
 const valassisData = {
-    "name": "Valassis", "hometown": "Hamburg, Germany",
+    "name": "Tom", "hometown": "Hamburg, Germany",
 };
 
 module.exports = valassisData;

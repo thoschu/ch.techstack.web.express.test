@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {valassisAction} = require('../controllers');
+const {tomAction} = require('../controllers');
 
-router.get('/', valassisAction);
+router.get('/', tomAction);
 
 module.exports = router;
