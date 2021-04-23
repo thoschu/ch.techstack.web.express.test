@@ -1,5 +1,5 @@
-const valassisView = require('./valassis.view');
+const tomView = require('./tom.view');
 
 module.exports = {
-    valassisView
+    tomView
 };

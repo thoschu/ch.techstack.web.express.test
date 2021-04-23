@@ -1,7 +1,7 @@
 const testData = require('./test.model');
-const valassisData = require('./valassis.model');
+const tomData = require('./tom.model');
 
 module.exports = {
     testData,
-    valassisData
+    tomData
 };

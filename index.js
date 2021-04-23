@@ -18,10 +18,15 @@ if (cluster.isMaster) {
         console.log(`worker ${worker.process.pid} died`);
     });
 } else {
-    app.get('/', router.valassisRouter);
-    app.get('/.*\/test.*$/', (req, res) => res.redirect('/test'));
-
+    const loggingMiddleware = (req, res, next) => {
+        console.log('ip:', req.ip);
+        next();
+    };
+    app.use(loggingMiddleware);
     app.use('/test', router.testRouter);
+
+    app.get('/', router.tomRouter);
+    app.get('/.*\/test.*$/', (req, res) => res.redirect('/test'));
 
     app.listen(PORT, () => {
         console.log(`Server listening on http://localhost:${PORT}`);

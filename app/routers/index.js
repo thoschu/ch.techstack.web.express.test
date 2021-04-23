@@ -1,7 +1,7 @@
 const testRouter = require('./test.router');
-const valassisRouter = require('./valassis.router');
+const tomRouter = require('./tom.router');
 
 module.exports = {
     testRouter,
-    valassisRouter
+    tomRouter
 };

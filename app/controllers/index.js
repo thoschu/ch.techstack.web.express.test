@@ -1,7 +1,7 @@
 const testAction = require('./test.controller');
-const valassisAction = require('./valassis.controller');
+const tomAction = require('./tom.controller');
 
 module.exports = {
     testAction,
-    valassisAction
+    tomAction
 };
