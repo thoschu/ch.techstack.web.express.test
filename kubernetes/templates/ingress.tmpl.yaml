@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${PROJECT_NAME}-ingress
+  namespace: ${NAMESPACE}
+  annotations:
+    acme.cert-manager.io/http01-ingress-class: ingress1
+    kubernetes.io/ingress.class: ingress1
+    cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  tls:
+    - hosts:
+      - portal.ingress1.dev-lbobka.de-1.mk.psmanaged.com
+      secretName: angular-secret
+  rules:
+    - host: portal.ingress1.dev-lbobka.de-1.mk.psmanaged.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: ${PROJECT_NAME}-loadbalancer-service
+              servicePort: 80
