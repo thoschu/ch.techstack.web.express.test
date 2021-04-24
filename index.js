@@ -1,12 +1,16 @@
 const cluster = require('cluster');
-const numCPUs = require('os').cpus().length;
+const os = require('os');
 const express = require('express');
+const { graphqlHTTP } = require('express-graphql');
+const { buildSchema } = require('graphql');
 
 const app = express();
 const router = require('./app/routers');
+const middleware = require('./app/middlewares');
 const PORT = 8888;
 
 if (cluster.isMaster) {
+    const numCPUs = os.cpus().length;
     console.log(`Primary ${process.pid} is running`);
 
     // Fork workers.
@@ -18,15 +22,31 @@ if (cluster.isMaster) {
         console.log(`worker ${worker.process.pid} died`);
     });
 } else {
-    const loggingMiddleware = (req, res, next) => {
-        console.log('ip:', req.ip);
-        next();
+    // Construct a schema, using GraphQL schema language
+    const schema = buildSchema(`
+        type Query {
+            hello: String
+        }
+    `);
+
+    // The root provides a resolver function for each API endpoint
+    const root = {
+        hello: () => {
+            return 'Hello world!';
+        }
     };
-    app.use(loggingMiddleware);
-    app.use('/test', router.testRouter);
 
     app.get('/', router.tomRouter);
     app.get('/.*\/test.*$/', (req, res) => res.redirect('/test'));
+
+    app.use(middleware.testMiddleware);
+    app.use('/test', router.testRouter);
+
+    app.use('/graphql', graphqlHTTP({
+        schema: schema,
+        rootValue: root,
+        graphiql: true,
+    }));
 
     app.listen(PORT, () => {
         console.log(`Server listening on http://localhost:${PORT}`);
