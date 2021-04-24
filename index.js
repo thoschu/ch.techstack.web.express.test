@@ -36,17 +36,16 @@ if (cluster.isMaster) {
         }
     };
 
-    app.get('/', router.tomRouter);
-    app.get('/.*\/test.*$/', (req, res) => res.redirect('/test'));
-
     app.use(middleware.testMiddleware);
     app.use('/test', router.testRouter);
-
     app.use('/graphql', graphqlHTTP({
         schema: schema,
         rootValue: root,
         graphiql: true,
     }));
+
+    app.get('/', router.tomRouter);
+    app.get('/.*\/test.*$/', (req, res) => res.redirect('/test'));
 
     app.listen(PORT, () => {
         console.log(`Server listening on http://localhost:${PORT}`);
