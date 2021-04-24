@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${PROJECT_NAME}-deployment
+  namespace: ${NAMESPACE}
+  labels:
+    app: ${PROJECT_NAME}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ${PROJECT_NAME}
+  template:
+    metadata:
+      labels:
+        app: ${PROJECT_NAME}
+    spec:
+      initContainers:
+        - name: init-express-test
+          image: ${REGISTRY}/runtime/cx/${PROJECT_NAME}:${IMAGE_TAG}
+          command: [ "/copy", "/app/${PROJECT_NAME}/:/www/" ]
+          volumeMounts:
+            - name: www-data
+              mountPath: /www
+      containers:
+        - name: nginx-container
+          image: internal-development-docker-common.techstack.ch/runtime/nginx:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 81
+              name: nginx-port
+          resources:
+            requests:
+              memory: "10Mi"
+            limits:
+              memory: "15Mi"
+          volumeMounts:
+            - name: www-data
+              mountPath: /var/www/html
+      imagePullSecrets:
+        - name: common-registry-secret
+        - name: registry-secret
+      volumes:
+        - name: www-data
+          emptyDir: { }
