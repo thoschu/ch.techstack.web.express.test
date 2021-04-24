@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "build:develop": "node index.js",
+    "build:release": "node index.js",
+    "build:main": "node index.js",
     "start:inspect": "node inspect index.js",
     "start:--inspect": "node --inspect index.js",
     "start:--inspect-brk": "node --inspect-brk index.js",
