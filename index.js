@@ -1,8 +1,12 @@
 const cluster = require('cluster');
+const http2 = require('spdy');
 const os = require('os');
+const fs = require('fs');
+const path = require('path');
+const morgan = require('morgan');
 const express = require('express');
-const { graphqlHTTP } = require('express-graphql');
-const { buildSchema } = require('graphql');
+const {graphqlHTTP} = require('express-graphql');
+const {buildSchema} = require('graphql');
 
 const app = express();
 const router = require('./app/routers');
@@ -36,7 +40,12 @@ if (cluster.isMaster) {
         }
     };
 
+    // create a write stream (in append mode)
+    const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+
     app.use(middleware.testMiddleware);
+    app.use(morgan('combined', {immediate: true, stream: accessLogStream}));
+    app.use(express.static(`${__dirname}/app/static`));
     app.use('/test', router.testRouter);
     app.use('/graphql', graphqlHTTP({
         schema: schema,
@@ -47,9 +56,26 @@ if (cluster.isMaster) {
     app.get('/', router.tomRouter);
     app.get('/.*\/test.*$/', (req, res) => res.redirect('/test'));
 
-    app.listen(PORT, () => {
-        console.log(`Server listening on http://localhost:${PORT}`);
+    // app.listen(PORT, () => {
+    //     console.log(`Server listening on http://localhost:${PORT}`);
+    // });
+
+    const options = {
+        key: fs.readFileSync('./localhost8888.key'),
+        cert: fs.readFileSync('./localhost8888.cert')
+    };
+
+    http2.createServer(options, app).listen(PORT, () => {
+        console.log(`Server listening on https://localhost:${PORT}`);
     });
 
-    console.log(`Worker ${process.pid} started`);
+    console.log(`Worker ${process.pid} started ${__dirname}/app/static`);
 }
+
+// 'use strict';
+//
+// module.exports = {
+//     build: require('./build'),
+//     metadata: require('./metadata'),
+//     options: require('./options')
+// };

@@ -1,6 +1,8 @@
 const testMiddleware = (req, res, next) => {
-    console.log('ip:', req.ip);
-    console.log('ip:', req.url);
+    console.log('Servername:', req.headers.host);
+    console.log('HTTP-Version:', req.httpVersion);
+    console.log('HTTP-Version:', req.spdyVersion);
+    console.dir(req.body);
 
     req.requestTime = Date.now();
 
