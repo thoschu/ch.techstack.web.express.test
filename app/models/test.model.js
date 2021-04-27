@@ -20,5 +20,8 @@ module.exports = {
     },
     getSurnameByValue(value) {
         return R.find(R.propEq('surname', value))(R.clone(testData));
+    },
+    delete(value) {
+
     }
 };
