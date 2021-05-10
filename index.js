@@ -5,12 +5,14 @@ const fs = require('fs');
 const path = require('path');
 const morgan = require('morgan');
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
 const {graphqlHTTP} = require('express-graphql');
 const {buildSchema} = require('graphql');
 
 const app = express();
 const router = require('./app/routers');
 const middleware = require('./app/middlewares');
+const swaggerSpec = require('./swagger');
 const PORT = 8888;
 
 if (cluster.isMaster) {
@@ -47,6 +49,8 @@ if (cluster.isMaster) {
     app.use(morgan('combined', {immediate: true, stream: accessLogStream}));
     app.use(express.static(`${__dirname}/app/static`));
     app.use('/test', router.testRouter);
+
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
     app.use('/graphql', graphqlHTTP({
         schema: schema,

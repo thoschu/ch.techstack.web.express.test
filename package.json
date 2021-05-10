@@ -30,7 +30,9 @@
     "express.js",
     "javascript",
     "node.js",
-    "mvc"
+    "mvc",
+    "graphql",
+    "openapi"
   ],
   "author": "Tom S.",
   "license": "MIT",
@@ -49,7 +51,7 @@
     "nano": "^9.0.3",
     "ramda": "^0.27.1",
     "spdy": "^4.0.2",
-    "swagger-jsdoc": "*",
+    "swagger-jsdoc": "6.1.0",
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
