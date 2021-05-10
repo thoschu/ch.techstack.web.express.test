@@ -47,6 +47,7 @@ if (cluster.isMaster) {
     app.use(morgan('combined', {immediate: true, stream: accessLogStream}));
     app.use(express.static(`${__dirname}/app/static`));
     app.use('/test', router.testRouter);
+
     app.use('/graphql', graphqlHTTP({
         schema: schema,
         rootValue: root,
