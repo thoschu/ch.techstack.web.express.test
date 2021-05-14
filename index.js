@@ -12,7 +12,7 @@ const {buildSchema} = require('graphql');
 const app = express();
 const router = require('./app/routers');
 const middleware = require('./app/middlewares');
-const swaggerSpec = require('./swagger');
+const swaggerSpec = require('./swagger/swagger');
 const PORT = 8888;
 
 if (cluster.isMaster) {

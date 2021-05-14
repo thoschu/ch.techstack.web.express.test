@@ -7,7 +7,7 @@ const swaggerDefinition = {
     info: {
         title: 'Test API',
         version: '1.0.0',
-        description: 'API for testing purposes',
+        description: '![ts icon](https://www.thomas-schulte.de/html/images/favicon.ico) Test API Beschreibung by **Tom S.**',
         license: {
             name: 'Licensed Under MIT',
             url: 'https://opensource.org/licenses/MIT',
@@ -33,7 +33,8 @@ const swaggerDefinition = {
 const options = {
     swaggerDefinition,
     apis: [
-        './app/routers/test.router.js'
+        './app/routers/test.router.js',
+        './app/routers/tom.router.js'
     ]
 };
 
