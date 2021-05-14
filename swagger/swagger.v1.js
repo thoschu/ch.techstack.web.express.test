@@ -6,15 +6,17 @@ const swaggerDefinition = {
     openapi: '3.0.0',
     info: {
         title: 'Test API',
-        version: '1.0.0',
-        description: '![ts icon](https://www.thomas-schulte.de/html/images/favicon.ico) Test API Beschreibung by **Tom S.**',
+        version: '1.3.7',
+        description: '![ts icon](https://www.thomas-schulte.de/html/images/favicon.ico) Test API Beschreibung by **Tom S.** - with ❤ in Hamburg/Germany 😂',
+        termsOfService: 'https://www.thomas-schulte.de/disclaimer.html',
         license: {
             name: 'Licensed Under MIT',
             url: 'https://opensource.org/licenses/MIT',
         },
         contact: {
             name: 'Tom S.',
-            url: 'https://www.thomas-schulte.de/disclaimer.html',
+            url: 'https://www.thomas-schulte.de/start.html',
+            email: 'thoschulte@gmail.com'
         }
     },
     servers: [
@@ -22,12 +24,16 @@ const swaggerDefinition = {
             url: 'https://localhost:8888',
             description: 'Development server 1',
         }, {
-            url: 'https://localhost:8899',
+            url: 'https://8.8.8.8:8888',
             description: 'Development server 2',
         }
     ],
     host: 'localhost:8888',
-    basePath: '/'
+    basePath: '/v1/',
+    externalDocs: {
+        description: 'Find out more',
+        url: 'https://www.thomas-schulte.de'
+    }
 };
 
 const options = {

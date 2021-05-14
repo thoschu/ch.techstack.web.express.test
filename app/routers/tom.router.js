@@ -4,7 +4,7 @@ const {tomAction} = require('../controllers');
 
 /**
  *  @openapi
- *  /:
+ *  /tom/:
  *      get:
  *          tags:
  *              - Tom
@@ -12,6 +12,7 @@ const {tomAction} = require('../controllers');
  *          responses:
  *              200:
  *                  description: Returns a mysterious string.
+ *          deprecated: true
  */
 router.get('/', tomAction);
 
