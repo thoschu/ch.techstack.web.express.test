@@ -7,7 +7,7 @@ const swaggerDefinition = {
     info: {
         title: 'Test API',
         version: '1.3.7',
-        description: '![ts icon](https://www.thomas-schulte.de/html/images/favicon.ico) Test API Beschreibung by **Tom S.** - with ❤ in Hamburg/Germany 😂',
+        description: '![ts icon](https://analytics.thomas-schulte.de/misc/user/logo-header.png) Test API Beschreibung by **Tom S.** - with ❤ in Hamburg/Germany 😂',
         termsOfService: 'https://www.thomas-schulte.de/disclaimer.html',
         license: {
             name: 'Licensed Under MIT',
